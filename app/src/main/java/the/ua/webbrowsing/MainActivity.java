@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import the.ua.dionisview.*;
 
 public class MainActivity extends Activity {

@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'maven'
+//apply plugin: 'java'
+//apply plugin: 'maven'
+
+//group = 'the.ua'
+//version = '1.0.2'
+//
+//uploadArchives {
+//    repositories {
+//        mavenLocal()
+//    }
+//}
+
+
+
+
+ext {
+    bintrayRepo = 'dionis-view'
+    bintrayName = 'dionis-view'
+    publishedGroupId = 'the.ua'
+    libraryName = 'dionis-view'
+    artifact = 'dionis-view'
+    libraryDescription = 'Home Work'
+    siteUrl = 'https://github.com/TheUa/dionis-view'
+    gitUrl = 'https://github.com/TheUa/dionis-view'
+    libraryVersion = '1.0.2'
+    developerId = 'theua'
+    developerName = 'the'
+    developerEmail = 'ua'
+    licenseName = 'The Apache Software License, Version 3.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-3.0.txt'
+    allLicenses = ["Apache-3.0"]
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0.2"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
+    }
+    lintOptions{
+        abortOnError false
+    }
+    repositories {
+        flatDir {
+            dirs 'libs', 'providedLibs'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+//    implementation 'androidx.appcompat:appcompat:1.1.0'
+//    implementation 'com.google.android.material:material:1.1.0'
+//    implementation 'com.download.library:Downloader:4.1.2'
+
+    implementation 'androidx.fragment:fragment:1.2.5'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+
+
+}
+
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
